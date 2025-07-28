@@ -1,0 +1,107 @@
+<!-- Navbar -->
+<nav class="navbar">
+  <div class="brand">Karenu Indah Service</div>
+  <ul>
+    <li><a href="#" onclick="showSection('section-home')">Home</a></li>
+    <li><a href="#" onclick="showSection('section-create')">Create Ticket</a></li>
+    <li><a href="#" onclick="showSection('section-track')">Track Ticket</a></li>
+    <li><a href="#" onclick="showSection('section-catalog')">E-Catalog</a></li>
+  </ul>
+</nav>
+
+<!-- Home Section -->
+<section id="section-home" class="section" style="display:none;">
+  <div class="container">
+    <h2>Welcome to Karenu Indah Digital Service</h2>
+    <p>
+      Selamat datang di prototipe sistem layanan purna jual digital. Di sini Anda dapat
+      mengadu kerusakan forklift, memantau status servis, serta mengecek ketersediaan
+      suku-cadang secara real-time.
+    </p>
+  </div>
+</section>
+
+<!-- Create Ticket Section -->
+<section id="section-create" class="section" style="display:none;">
+  <div class="container">
+    <h2>Create New Service Ticket</h2>
+    <form id="ticketForm" onsubmit="submitTicket(event)">
+      <div class="form-group">
+        <label for="forkliftId">Forklift ID</label>
+        <input
+          type="text"
+          id="forkliftId"
+          placeholder="Masukkan ID Forklift atau gunakan QR"
+          required
+        />
+        <button
+          type="button"
+          class="btn-small"
+          style="margin-top: 0.5rem;"
+          onclick="scanQRCode()"
+        >
+          Scan QR Code
+        </button>
+      </div>
+      <div class="form-group">
+        <label for="issueDesc">Deskripsi Kerusakan</label>
+        <textarea
+          id="issueDesc"
+          placeholder="Jelaskan masalah forklift"
+          required
+        ></textarea>
+      </div>
+      <button type="submit" class="btn">Submit Ticket</button>
+    </form>
+  </div>
+</section>
+
+<!-- Track Ticket Section -->
+<section id="section-track" class="section" style="display:none;">
+  <div class="container">
+    <h2>Track Your Ticket</h2>
+    <form onsubmit="searchTicket(event)">
+      <div class="form-group">
+        <label for="searchTicketId">Ticket ID</label>
+        <input
+          type="text"
+          id="searchTicketId"
+          placeholder="Masukkan Ticket ID"
+          required
+        />
+      </div>
+      <button type="submit" class="btn">Search</button>
+    </form>
+    <div id="ticketDetail" style="margin-top: 1rem;"></div>
+
+    <h3 style="margin-top: 2rem;">All Tickets Overview</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Ticket ID</th>
+          <th>Forklift ID</th>
+          <th>Status</th>
+          <th>History</th>
+        </tr>
+      </thead>
+      <tbody id="ticketListBody">
+        <!-- Rows akan di-populate secara dinamis -->
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- E-Catalog Section -->
+<section id="section-catalog" class="section" style="display:none;">
+  <div class="container">
+    <h2>E-Catalog Suku-Cadang</h2>
+    <div id="catalogGrid" class="catalog-grid">
+      <!-- Catalog items akan di-populate secara dinamis -->
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  &copy; 2025 PT Karenu Indah. All rights reserved.
+</footer>
